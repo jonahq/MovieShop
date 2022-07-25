@@ -1,8 +1,17 @@
 ﻿@model ApplicationCore.Models.MovieDetailsModel
 
-<h1>
-   @Model.Title
-</h1>
-<h3>
-    @Model.Overview
-</h3>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <img src="@Model.PosterUrl"/>
+    </div>
+    <div class="col">
+        <h1>@Model.Title <span class="badge bg-secondary">New</span></h1>
+        <h2> <span class="badge bg-secondary">@foreach (var Name in @Model.Genres){@Name} </span></h2>
+        <h3><img src="@Model.ImdbUrl" /> <span class="badge bg-secondary">New</span></h3>
+    </div>
+    <div class="col">
+      Column
+    </div>
+  </div>
+</div>
