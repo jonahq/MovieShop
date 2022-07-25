@@ -4,11 +4,16 @@
   <div class="row">
     <div class="col">
       <img src="@Model.PosterUrl"/>
+      
     </div>
     <div class="col">
-        <h1>@Model.Title <span class="badge bg-secondary">New</span></h1>
-        <h2> <span class="badge bg-secondary">@foreach (var Name in @Model.Genres){@Name} </span></h2>
-        <h3><img src="@Model.ImdbUrl" /> <span class="badge bg-secondary">New</span></h3>
+        <h1>@Model.Title <span class="badge bg-secondary"></span></h1>
+        <h2> 
+            @foreach (var genre in Model.Genres){            
+            <span class="badge bg-secondary"> @genre</span>
+            }
+        </h2>
+        <h3>@Model.Tagline <span class="badge bg-secondary">New</span></h3>
     </div>
     <div class="col">
       Column
