@@ -10,7 +10,7 @@
         <h1>@Model.Title <span class="badge bg-secondary"></span></h1>
         <h2> 
             @foreach (var genre in Model.Genres){            
-            <span class="badge bg-secondary"> @genre</span>
+            <span class="badge bg-secondary"> @genre.Name</span>
             }
         </h2>
         <h3>@Model.Tagline <span class="badge bg-secondary">New</span></h3>
