@@ -3,20 +3,62 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <img src="@Model.PosterUrl"/>
+      <img src="@Model.PosterUrl"/ height="250">
       
     </div>
     <div class="col">
         <h1>@Model.Title <span class="badge bg-secondary"></span></h1>
-        <h2> 
+        <h2 style="font-size: 1em;"> 
             @foreach (var genre in Model.Genres){            
             <span class="badge bg-secondary"> @genre.Name</span>
             }
         </h2>
-        <h3>@Model.Tagline <span class="badge bg-secondary">New</span></h3>
+        <h3 style="font-size: 1em;">@Model.Tagline <span class="badge bg-secondary"></span></h3>
     </div>
     <div class="col">
-      Column
+      <a asp-action="Purchase" asp-route-id = "@Model.Id" role="button" class="btn btn-outline-primary">Buy Ticket</a>
+      <br/>
+      <br/>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Review
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Write your review</h5><br/>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Rate this movie from 1 to 10
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">1</a>
+                <a class="dropdown-item" href="#">2</a>
+                <a class="dropdown-item" href="#">3</a>
+                <a class="dropdown-item" href="#">4</a>
+                <a class="dropdown-item" href="#">5</a>
+                <a class="dropdown-item" href="#">6</a>
+                <a class="dropdown-item" href="#">7</a>
+                <a class="dropdown-item" href="#">8</a>
+                <a class="dropdown-item" href="#">9</a>
+                <a class="dropdown-item" href="#">10</a>
+              </div>
+            </div>
+            <br/>
+            <input type="text" id="review" name="review" height="30">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Submit Review</button>
+          </div>
+        </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
