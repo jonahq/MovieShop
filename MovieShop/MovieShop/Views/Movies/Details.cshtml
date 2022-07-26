@@ -9,7 +9,7 @@
     <div class="col">
         <h1>@Model.Title <span class="badge bg-secondary"></span></h1>
         <h2 style="font-size: 1em;"> 
-            @foreach (var genre in Model.Genres){            
+            @foreach (var genre in Model.Genres){     
             <span class="badge bg-secondary"> @genre.Name</span>
             }
         </h2>
@@ -61,4 +61,20 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="container">
+    @foreach(var cast in Model.Casts){
+        <div class="row">
+        <div class="col-sm">
+            <img src="@cast.ProfilePath" style="height:2em;"> 
+        </div>
+        <div class="col-sm">
+            @cast.Name
+        </div>
+        <div class="col-sm">
+            @cast.Character
+        </div>
+        </div>
+    }
 </div>
