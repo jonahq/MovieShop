@@ -6,10 +6,12 @@ namespace MovieShopMVC.Controllers
     public class MoviesController : Controller
     {
         private readonly IMovieService _movieService;
+        private readonly ICastService _castService;
 
-        public MoviesController(IMovieService movieService)
+        public MoviesController(IMovieService movieService, ICastService castService)
         {
             _movieService = movieService;
+            _castService = castService;
         }
 
         [HttpGet]
@@ -25,5 +27,13 @@ namespace MovieShopMVC.Controllers
             var movieDetails = await _movieService.GetMovieDetails(id);
             return View(movieDetails);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> CastDetail(int id)
+        {
+            var castDetails = await _castService.GetCastDetails(id);
+            return View(castDetails);
+        }
+
     }
 }

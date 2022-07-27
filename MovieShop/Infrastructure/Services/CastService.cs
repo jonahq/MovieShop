@@ -18,15 +18,25 @@ namespace Infrastructure.Services
             _castRepository = movieRepository;
         }
 
-        public Task<List<CastModel>> GetCastDetails(int id)
+        public async Task<MovieListModel> GetCastDetails(int id)
         {
-            throw new NotImplementedException();
+            var castDetail = await _castRepository.GetById(id);
+            var castDetailModel = new MovieListModel();
+            castDetailModel.lst = new List<MovieCardModel>();
+            foreach (var card in castDetail)
+            {
+                var token = new MovieCardModel 
+                { 
+                    Id = card.Id, 
+                    Title = card.Title,
+                    PosterUrl = card.PosterUrl
+                };
+                castDetailModel.lst.Add(token);
+            }
+            return castDetailModel;
+            
         }
 
-        public Task<List<CastModel>> GetCastDetails()
-        {
-            throw new NotImplementedException();
-        }
 
 
     }

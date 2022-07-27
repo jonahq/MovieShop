@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <img src="@Model.PosterUrl"/ height="250">
+      <img src="@Model.PosterUrl" height="250">
       
     </div>
     <div class="col">
@@ -67,7 +67,9 @@
     @foreach(var cast in Model.Casts){
         <div class="row">
         <div class="col-sm">
-            <img src="@cast.ProfilePath" style="height:2.1em;"> 
+            <a asp-action="CastDetail" asp-route-id = "@Model.Id">
+                <img src="@cast.ProfilePath" style="height:2.1em;"> 
+            </a>
         </div>
         <div class="col-sm">
             @cast.Name

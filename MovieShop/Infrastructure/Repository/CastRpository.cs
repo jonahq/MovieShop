@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Repository
+namespace Infrastructure.Repositories
 {
     public class CastRpository : ICastRepository
     {
@@ -18,11 +18,10 @@ namespace Infrastructure.Repository
             _movieShopDbContext = dbContext;
         }
 
-        public async Task<Cast> GetById(int id)
+        public async Task<List<Movie>> GetById(int id)
         {
-            var casts = await _movieShopDbContext.Casts
-                .FirstOrDefaultAsync(m => m.Id == id);
-            return casts;
+            var movies = await _movieShopDbContext.Movies.OrderByDescending(m => m.Id).ToListAsync();
+            return movies;
         }
     }
 }

@@ -9,6 +9,6 @@ namespace ApplicationCore.RepositoryContracts
 {
     public interface ICastRepository
     {
-        Task<Cast> GetById(int id);
+        Task<List<Movie>> GetById(int id);
     }
 }
