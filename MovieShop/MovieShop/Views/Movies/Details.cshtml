@@ -67,7 +67,7 @@
     @foreach(var cast in Model.Casts){
         <div class="row">
         <div class="col-sm">
-            <a asp-action="CastDetail" asp-route-id = "@Model.Id">
+            <a asp-action="CastDetail" asp-route-id = "@cast.Id">
                 <img src="@cast.ProfilePath" style="height:2.1em;"> 
             </a>
         </div>

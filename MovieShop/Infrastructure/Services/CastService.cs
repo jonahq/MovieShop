@@ -25,13 +25,12 @@ namespace Infrastructure.Services
             castDetailModel.lst = new List<MovieCardModel>();
             foreach (var card in castDetail)
             {
-                var token = new MovieCardModel 
+                castDetailModel.lst.Add(new MovieCardModel 
                 { 
                     Id = card.Id, 
                     Title = card.Title,
                     PosterUrl = card.PosterUrl
-                };
-                castDetailModel.lst.Add(token);
+                });
             }
             return castDetailModel;
             
