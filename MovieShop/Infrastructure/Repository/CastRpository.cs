@@ -18,10 +18,12 @@ namespace Infrastructure.Repositories
             _movieShopDbContext = dbContext;
         }
 
-        public async Task<List<Movie>> GetById(int id)
+        public async Task<Cast> GetById(int id)
         {
-            var movies = await _movieShopDbContext.Movies.OrderByDescending(m => m.Id).ToListAsync();
-            return movies;
+            var movieid = await _movieShopDbContext.Casts
+                .Include(m => m.MoviesOfCast).ThenInclude(m => m.Movie)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            return movieid;
         }
     }
 }

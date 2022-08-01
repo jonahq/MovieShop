@@ -8,6 +8,10 @@ namespace ApplicationCore.Models
 {
     public class MovieListModel
     {
+        public MovieListModel()
+        {
+            lst = new List<MovieCardModel>();
+        }
         public List<MovieCardModel> lst { get; set; }
     }
 }

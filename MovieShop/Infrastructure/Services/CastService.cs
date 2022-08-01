@@ -22,14 +22,13 @@ namespace Infrastructure.Services
         {
             var castDetail = await _castRepository.GetById(id);
             var castDetailModel = new MovieListModel();
-            castDetailModel.lst = new List<MovieCardModel>();
-            foreach (var card in castDetail)
+            foreach (var card in castDetail.MoviesOfCast)
             {
                 castDetailModel.lst.Add(new MovieCardModel 
                 { 
-                    Id = card.Id, 
-                    Title = card.Title,
-                    PosterUrl = card.PosterUrl
+                    Id = card.MovieId, 
+                    Title = card.Movie.Title,
+                    PosterUrl = card.Movie.PosterUrl
                 });
             }
             return castDetailModel;
